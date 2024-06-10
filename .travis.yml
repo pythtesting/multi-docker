@@ -4,7 +4,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t nityatesting/react-test -f ./client/dockerfile.dev ./client
+  - docker build -t nityaprashant/react-test -f ./client/dockerfile.dev ./client
 
 script:
    - docker run -e CI=true nityaprashant/react-test npm test
@@ -18,7 +18,7 @@ after_sucess:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
 #take those images and push to docker hub
-  - docker push nityatesting/multi-client
-  - docker push nityatesting/multi-nginx
-  - docker push nityatesting/multi-server
-  - docker push nityatesting/multi-worker
+  - docker push nityaprashant/multi-client
+  - docker push nityaprashant/multi-nginx
+  - docker push nityaprashant/multi-server
+  - docker push nityaprashant/multi-worker
